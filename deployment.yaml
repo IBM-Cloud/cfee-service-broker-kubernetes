@@ -1,0 +1,33 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: tutorial-broker-service
+spec:
+  selector:
+    app: tutorial-servicebroker
+  ports:
+  - port: 80
+    targetPort: 3000
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: tutorial-servicebroker-deployment
+spec:
+  selector:
+    matchLabels:
+      app: tutorial-servicebroker
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: tutorial-servicebroker
+    spec:
+      containers:
+      - name: tutorial-servicebroker
+        image: registry.ng.bluemix.net/cfee-tutorial/service-broker-impl
+        env:
+          - name: VERSION
+            value: "1"
+        ports:
+        - containerPort: 3000

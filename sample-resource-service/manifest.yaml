@@ -1,0 +1,4 @@
+---
+applications:
+ - name: welcome
+   memory: 64M
