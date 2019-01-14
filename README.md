@@ -12,7 +12,16 @@ This project comes with a partially automated toolchain capable of deploying the
 
 ### Prerequisites
 
-1. Create a [Cloud Foundry Enterprise Environment](https://cloud.ibm.com/cfadmin/create) service instance
+1. Create a [Cloud Foundry Enterprise Environment](https://cloud.ibm.com/cfadmin/create) service instance.
+2. A CFEE org and space name will be needed for the toolchain. Create them using the instructions below.
+    ```sh
+    ibmcloud target --cf
+    <choose your CFEE instance name>
+    ibmcloud cf create-org cfee-tutorial
+    ibmcloud target -o cfee-tutorial
+    ibmcloud cf create-space dev
+    ibmcloud target -s dev
+    ```
 
 Once the toolchain has completed, the following artifacts will be available.
 
