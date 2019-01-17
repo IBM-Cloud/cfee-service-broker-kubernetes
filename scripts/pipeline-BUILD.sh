@@ -46,9 +46,9 @@ const testService = appEnv.services['testnoderesourceservicebrokername']; \
 \
 if (testService) { \
   const { credentials: { url} } = testService[0]; \
-  app.get("/api/welcome", (req, res) => request(url, (e, r, b) => res.send(b))); \
+  app.get('/api/welcome', (req, res) => request(url, (e, r, b) => res.send(b))); \
 } else { \
-  app.get("/api/welcome", (req, res) => res.send('Welcome')); \
+  app.get('/api/welcome', (req, res) => res.send('Welcome')); \
 } \
 \
 var port = process.env.PORT || 3000_" ${SERVER_JS} > ${SERVER_JS}.tmp
