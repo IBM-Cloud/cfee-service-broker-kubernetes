@@ -36,7 +36,7 @@ git clone ${REPO}
 #
 INDEX_HTML=./get-started-node/views/index.html
 sed "s|<h1 data-i18n="welcome"></h1>|<h1 id="welcome"></h1>|" ${INDEX_HTML} > ${INDEX_HTML}.tmp
-echo "<script>$.get('./api/welcome').done(data => document.getElementById('welcome').innerHTML= data);</script>" >> ${INDEX_HTML}.tmp
+echo "<script>$(document).ready(() => { $.get('./api/welcome').done(data => document.getElementById('welcome').innerHTML= data); });</script>" >> ${INDEX_HTML}.tmp
 mv ${INDEX_HTML}.tmp ${INDEX_HTML}
 #cat ${INDEX_HTML}
 
