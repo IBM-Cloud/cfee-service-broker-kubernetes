@@ -4,3 +4,5 @@ sample-resource-service/node_modues/
 public_networks.json
 build.properties
 changes/
+pipeline-master.yml
+.bluemix-not-in-use
