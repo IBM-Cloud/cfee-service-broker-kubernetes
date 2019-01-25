@@ -36,23 +36,13 @@ services:
           API_KEY: '{{form.pipeline.parameters.api-key}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
-          DB_IMAGE_NAME: '{{form.pipeline.parameters.db-image-name}}'
-          MMS_IMAGE_NAME: '{{form.pipeline.parameters.mms-image-name}}'
-          WEB_IMAGE_NAME: '{{form.pipeline.parameters.web-image-name}}'
           TARGET_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
           TARGET_CLUSTER_NAME: '{{form.pipeline.parameters.prod-cluster-name}}'
           TARGET_NAMESPACE: '{{form.pipeline.parameters.prod-cluster-namespace}}'
-          WATSON_VR_API_KEY: '{{form.pipeline.parameters.watson-api-key}}'
-          TWILIO_SID: '{{form.pipeline.parameters.twilio-sid}}'
-          TWILIO_TOKEN: '{{form.pipeline.parameters.twilio-token}}'
-          TWILIO_NUMBER: '{{form.pipeline.parameters.twilio-number}}'
         execute: true
 form:
   pipeline:
     parameters:
-      db-image-name: 'jpetstoredb'
-      mms-image-name: 'mmssearch'
-      web-image-name: 'jpetstoreweb'
-      prod-cluster-namespace: petstore
+      prod-cluster-namespace: cfee-tutorial
     schema:
       $ref: deploy.json
