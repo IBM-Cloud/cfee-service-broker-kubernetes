@@ -46,4 +46,4 @@ stages:
       kubernetes_cluster: ${TARGET_CLUSTER_NAME}
     script: |
       #!/bin/bash
-      ./.bluemix/pipeline-DEPLOY.sh
+      #./.bluemix/pipeline-DEPLOY.sh
