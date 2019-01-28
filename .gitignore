@@ -6,3 +6,4 @@ build.properties
 changes/
 pipeline-master.yml
 .bluemix-not-in-use
+./bluemix/pipeline-not-in-use.yml
