@@ -131,22 +131,6 @@
       ]
     },
     {
-      "type": "section",
-      "title": { "$ref": "#/messages/deploy.imageName" },
-      "items": [
-        {
-          "type": "table",
-          "columnCount": 3,
-          "widths": ["33%", "33%", "33%", "33%"],
-          "items": [
-            "web-image-name",
-            "db-image-name",
-            "mms-image-name"
-          ]
-        }
-      ]
-    },
-    {
       "type": "table",
       "columnCount": 5,
       "widths": [
