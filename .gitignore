@@ -7,3 +7,4 @@ changes/
 pipeline-master.yml
 .bluemix-not-in-use
 ./bluemix/pipeline-not-in-use.yml
+cf_create_org_space(not-in-use).sh

@@ -1,6 +1,6 @@
 ---
 stages:
-- name: BUILD
+- name: BUILD 
   inputs:
   - type: git
     branch: ${GIT_BRANCH}
