@@ -28,19 +28,3 @@ deploy.clusternsDescription: "If the cluster namespace doesn't exist already, it
 region: "Cluster region"
 organization: "Organization"
 space: "Space"
-
-
-
-deploy.requiredServices: "Required Services"
-deploy.watsonApiKey: "Watson Visual Recognition API Key"
-
-deploy.optionalServices: "Optional Services"
-deploy.twilioSid: "Twilio Account SID"
-deploy.twilioToken: "Twilio Token"
-deploy.twilioNumber: "Twilio Phone Number"
-
-deploy.imageName: "Images"
-deploy.imageDescription: "The respective microservice's Docker image name"
-deploy.dbImageName: "Database Image"
-deploy.mmsImageName: "MMS Search Image"
-deploy.webImageName: "Web App Image"
