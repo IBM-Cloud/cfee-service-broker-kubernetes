@@ -25,24 +25,29 @@ services:
     parameters:
       services:
         - repo
-      name: 'CFEE-tutorial-app'
+      name: 'CFEE-tutorial-app ({{form.pipeline.parameters.branch-name}})'
       ui-pipeline: true
       configuration:
         content:
           $text: pipeline.yml
         env:
           GIT_REPO: repo
-          GIT_BRANCH: master
+          GIT_BRANCH: '{{form.pipeline.parameters.branch-name}}'
           API_KEY: '{{form.pipeline.parameters.api-key}}'
-          REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
+          REGISTRY_REGION_ID: '{{form.pipeline.parameters.target-region}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
-          TARGET_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
-          TARGET_CLUSTER_NAME: '{{form.pipeline.parameters.prod-cluster-name}}'
-          TARGET_NAMESPACE: '{{form.pipeline.parameters.prod-cluster-namespace}}'
+          IMAGE_NAME: '{{form.pipeline.parameters.image-name}}'
+          TARGET_REGION_ID: '{{form.pipeline.parameters.target-region}}'
+          TARGET_CLUSTER_NAME: '{{form.pipeline.parameters.target-cluster-name}}'
+          TARGET_NAMESPACE: '{{form.pipeline.parameters.target-cluster-namespace}}'
+          TARGET_RESOURCE_GROUP: '{{form.pipeline.parameters.target-resource-group}}'
         execute: true
 form:
   pipeline:
     parameters:
-      prod-cluster-namespace: cfee-tutorial
+      image-name: 'CFEE-tutorial-app'
+      target-cluster-namespace: cfee-tutorial
+      target-resource-group: 'default'
+      branch-name: 'master'
     schema:
       $ref: deploy.json
