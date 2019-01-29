@@ -1,6 +1,6 @@
 #The format for creating a link with a URL and text is [link text](link url) with no spaces or characters between the two sets of brackets- []()
 template.name: "CFEE-Tutorial-App"
-template.description: "Cloud Foundry Enterprise Environment (CFEE) solution tutorial. This toolchain will: 1_ Deploy a Node.js starter app using Cloudnat database. 2_ A Node.js service broker to an IBM Kubernetes Service cluster, the service will output a "welcome message”. 3_ Use the "welcome message" service in the Node.js starter app."
+template.description: "Cloud Foundry Enterprise Environment (CFEE) solution tutorial. This toolchain will: 1_ Deploy a Node.js starter app using Cloudnat database. 2_ A Node.js service broker to an IBM Kubernetes Service cluster, the service will output a welcome message. 3_ Use the welcome message service in the Node.js starter app."
 deploy.title: "Delivery Pipeline"
 deploy.description: "CFEE-Tutorial-App"
 deploy.longDescription: "The Delivery Pipeline automates continuous deployment."
