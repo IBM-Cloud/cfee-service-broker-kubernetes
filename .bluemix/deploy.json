@@ -158,6 +158,30 @@
         "$ref": "#/messages/deploy.namespaceName"
       },
       "key": "target-cluster-namespace"
+    },
+    {
+      "type": "text",
+      "readonly": false,
+      "title": {
+        "$ref": "#/messages/deploy.cfeeHost"
+      },
+      "key": "cfee-host"
+    },
+    {
+      "type": "text",
+      "readonly": false,
+      "title": {
+        "$ref": "#/messages/deploy.cfeeOrg"
+      },
+      "key": "cfee-org"
+    },
+    {
+      "type": "text",
+      "readonly": false,
+      "title": {
+        "$ref": "#/messages/deploy.cfeeSpace"
+      },
+      "key": "cfee-space"
     }
   ]
 }
