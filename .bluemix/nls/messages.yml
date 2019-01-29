@@ -19,3 +19,7 @@ deploy.clusterNote: "Retrieve the Kubernetes cluster name with the CLI command '
 region: "Region"
 deploy.groupName: "Resource group where to create resources"
 deploy.groupDescription: "Resource group where to create resources"
+
+deploy.cfeeHost: "CFEE API Endpoint"  
+deploy.cfeeOrg: "CFEE Organization"
+deploy.cfeeSpace: "CFEE Space" 

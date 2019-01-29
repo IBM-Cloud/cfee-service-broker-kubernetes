@@ -63,6 +63,27 @@
       },
       "type": "string",
       "pattern": "\\S"
+    },
+    "cfee-host": {
+      "description": {
+        "$ref": "#/messages/deploy.cfeeHost"
+      },
+      "type": "string",
+      "pattern": "\\S"
+    },
+    "cfee-org": {
+      "description": {
+        "$ref": "#/messages/deploy.cfeeOrg"
+      },
+      "type": "string",
+      "pattern": "\\S"
+    },
+    "cfee-space": {
+      "description": {
+        "$ref": "#/messages/deploy.cfeeSpace"
+      },
+      "type": "string",
+      "pattern": "\\S"
     }
   },
   "required": [
