@@ -93,7 +93,10 @@
     "image-name",
     "registry-namespace",
     "target-cluster-name",
-    "target-cluster-namespace"
+    "target-cluster-namespace",
+    "cfee-host",
+    "cfee-org",
+    "cfee-space"
   ],
   "form": [
     {
