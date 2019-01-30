@@ -41,7 +41,8 @@ services:
           TARGET_CLUSTER_NAME: '{{form.pipeline.parameters.prod-cluster-name}}'
           TARGET_NAMESPACE: '{{form.pipeline.parameters.prod-cluster-namespace}}'
           TARGET_RESOURCE_GROUP: '{{form.pipeline.parameters.prod-resource-group}}'
-        execute: true
+        execute: false 
+        # ToDo update later to true
 form:
   pipeline:
     parameters:
