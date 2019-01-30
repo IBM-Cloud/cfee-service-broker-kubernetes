@@ -35,7 +35,7 @@
       "type": "string",
       "pattern": "^[a-z0-9][-_a-z0-9]{2,28}[a-z0-9]$"
     },
-    "target-resource-group": {
+    "prod-resource-group": {
       "description": {
         "$ref": "#/messages/deploy.groupDescription"
       },
@@ -103,7 +103,7 @@
     "api-key",
     "registry-region",
     "registry-namespace",
-    "target-resource-group",
+    "prod-resource-group",
     "image-name",
     "prod-region",
     "prod-cluster-name",
@@ -147,7 +147,7 @@
       "title": {
         "$ref": "#/messages/deploy.groupName"
       },
-      "key": "target-resource-group"
+      "key": "prod-resource-group"
     },
     {
       "type": "text",

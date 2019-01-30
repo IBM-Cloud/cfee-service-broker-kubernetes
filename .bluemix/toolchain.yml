@@ -34,20 +34,20 @@ services:
           GIT_REPO: repo
           GIT_BRANCH: '{{form.pipeline.parameters.branch-name}}'
           API_KEY: '{{form.pipeline.parameters.api-key}}'
-          REGISTRY_REGION_ID: '{{form.pipeline.parameters.target-region}}'
+          REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
           IMAGE_NAME: '{{form.pipeline.parameters.image-name}}'
-          TARGET_REGION_ID: '{{form.pipeline.parameters.target-region}}'
-          TARGET_CLUSTER_NAME: '{{form.pipeline.parameters.target-cluster-name}}'
-          TARGET_NAMESPACE: '{{form.pipeline.parameters.target-cluster-namespace}}'
-          TARGET_RESOURCE_GROUP: '{{form.pipeline.parameters.target-resource-group}}'
+          TARGET_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
+          TARGET_CLUSTER_NAME: '{{form.pipeline.parameters.prod-cluster-name}}'
+          TARGET_NAMESPACE: '{{form.pipeline.parameters.prod-cluster-namespace}}'
+          TARGET_RESOURCE_GROUP: '{{form.pipeline.parameters.prod-resource-group}}'
         execute: true
 form:
   pipeline:
     parameters:
       image-name: 'CFEE-tutorial-app'
-      target-cluster-namespace: cfee-tutorial
-      target-resource-group: 'default'
+      prod-cluster-namespace: cfee-tutorial
+      prod-resource-group: 'default'
       branch-name: 'master'
     schema:
       $ref: deploy.json
