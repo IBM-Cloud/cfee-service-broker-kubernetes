@@ -25,9 +25,6 @@ space: "Space"
 
 deploy.imageRegistryNamespace: "Image Registry Namespace"
 deploy.apiKey: "IBM Cloud API Key"
-deploy.regionDescription: "The IBM Cloud region"
-
-
 deploy.registryRegionDescription: "The IBM Cloud region for image registry"
 deploy.registrynsDescription: "The namespace in the container image registry. You can set it up with {bx cr namespace-add]. Learn more at https://cloud.ibm.com/docs/services/Registry/index.html."
 deploy.imgregRegion: "Container image registry region"
