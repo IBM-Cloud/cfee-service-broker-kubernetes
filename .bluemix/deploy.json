@@ -64,6 +64,13 @@
       "type": "string",
       "pattern": "\\S"
     },
+    "cfee-env": {
+      "description": {
+        "$ref": "#/messages/deploy.cfeeEnv"
+      },
+      "type": "string",
+      "pattern": "\\S"
+    },
     "cfee-host": {
       "description": {
         "$ref": "#/messages/deploy.cfeeHost"
@@ -94,6 +101,7 @@
     "registry-namespace",
     "target-cluster-name",
     "target-cluster-namespace",
+    "cfee-env",
     "cfee-host",
     "cfee-org",
     "cfee-space"
@@ -158,6 +166,14 @@
         "$ref": "#/messages/deploy.namespaceName"
       },
       "key": "target-cluster-namespace"
+    },
+    {
+      "type": "text",
+      "readonly": false,
+      "title": {
+        "$ref": "#/messages/deploy.cfeeEnv"
+      },
+      "key": "cfee-env"
     },
     {
       "type": "text",

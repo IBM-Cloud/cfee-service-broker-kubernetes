@@ -20,6 +20,7 @@ region: "Region"
 deploy.groupName: "Resource group where to create resources"
 deploy.groupDescription: "Resource group where to create resources"
 
+deploy.cfeeEnv: "CFEE Environment"  
 deploy.cfeeHost: "CFEE API Endpoint"  
-deploy.cfeeOrg: "CFEE Organization"
+deploy.cfeeOrg: "CFEE Org"
 deploy.cfeeSpace: "CFEE Space" 
