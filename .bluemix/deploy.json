@@ -49,28 +49,27 @@
       "type": "string",
       "pattern": "\\S"
     },
-    "registry-namespace": {
+      "prod-region": {
       "description": {
-        "$ref": "#/messages/deploy.registryDescription"
+        "$ref": "#/messages/deploy.regionDescription"
       },
       "type": "string",
-      "enum": [],
-      "pattern": "^[a-z0-9][a-z0-9_-]{3,29}$"
+      "disabled": false
     },
-    "target-cluster-name": {
+    "prod-cluster-name": {
       "description": {
-        "$ref": "#/messages/deploy.clusterDescription"
+        "$ref": "#/messages/deploy.clusterNameDescription"
       },
       "type": "string",
       "pattern": "\\S"
     },
-    "target-cluster-namespace": {
+    "prod-cluster-namespace": {
       "description": {
         "$ref": "#/messages/deploy.namespaceDescription"
       },
       "type": "string",
-      "pattern": "\\S"
-    },
+      "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
+    },    
     "cfee-env": {
       "description": {
         "$ref": "#/messages/deploy.cfeeEnv"
@@ -106,9 +105,9 @@
     "registry-namespace",
     "target-resource-group",
     "image-name",
-    "registry-namespace",
-    "target-cluster-name",
-    "target-cluster-namespace",
+    "prod-region",
+    "prod-cluster-name",
+    "prod-cluster-namespace",
     "cfee-env",
     "cfee-host",
     "cfee-org",
@@ -159,20 +158,18 @@
       "key": "image-name"
     },
     {
-      "key": "target-cluster-name",
-      "readonly": false,
       "type": "select",
-      "title": {
-        "$ref": "#/messages/deploy.clusterName"
-      }
+      "key": "prod-region"
+    },
+    {
+      "type": "select",
+      "key": "prod-cluster-name",
+      "readonly": false
     },
     {
       "type": "text",
-      "readonly": false,
-      "title": {
-        "$ref": "#/messages/deploy.namespaceName"
-      },
-      "key": "target-cluster-namespace"
+      "key": "prod-cluster-namespace",
+      "readonly": false
     },
     {
       "type": "text",
