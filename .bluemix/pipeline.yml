@@ -7,85 +7,93 @@ stages:
     service: ${GIT_REPO}
   triggers:
   - type: commit
+  properties:
+  - name: TARGET_CLUSTER_NAME
+    value: cfee-tutorial
+    type: text
   jobs:
   - name: Build Docker image
     type: builder
     build_type: cr
     # artifact_dir: output
+    namespace: ${REGISTRY_NAMESPACE}
+    image_name: ${IMAGE_NAME}
     target:
       region_id: ${REGISTRY_REGION_ID}
       api_key: ${API_KEY}
-    namespace: ${REGISTRY_NAMESPACE}
-    image_name: ${IMAGE_NAME}
     script: |
       #!/bin/bash
       ./scripts/pipeline-BUILD.sh
-#ToDo update deploy
-- name: DEPLOY
+- name: Deploy
   inputs:
   - type: job
-    stage: BUILD
-    job: Build Docker image
+    stage: Build
+    job: Build
+    dir_name: null
   triggers:
   - type: stage
+  permission:
+    execute: TOOLCHAIN_ADMINS
   properties:
   - name: buildprops
     value: build.properties
     type: file
-  - name: TARGET_NAMESPACE
-    value: ${TARGET_NAMESPACE}
-    type: text
-  - name: TARGET_RESOURCE_GROUP
-    value: ${TARGET_RESOURCE_GROUP}
-    type: text
-  - name: COS_PLAN
-    value: "lite"
-    type: text
-  - name: APP_ID_PLAN
-    value: "lite"
-    type: text
+  - name: API_KEY
+    type: secure
   jobs:
-  - name: Deploy
+  - name: Deploy Service Broker
     type: deployer
+    deploy_type: kubernetes
     target:
-      region_id: ${TARGET_REGION_ID}
+      region_id: ${REGISTRY_REGION_ID}
       api_key: ${API_KEY}
-      kubernetes_cluster: ${TARGET_CLUSTER_NAME}
       resource_group: ${TARGET_RESOURCE_GROUP}
-    script: |
+      kubernetes_cluster: ${TARGET_CLUSTER_NAME}
+    script: |-
       #!/bin/bash
-      wget https://clis.ng.bluemix.net/download/bluemix-cli/0.9.0/linux64
-      tar zxvf linux64
-      chmod +x ./Bluemix_CLI/bin/* ./Bluemix_CLI/bin/cfcli/*
-      export PATH=$PWD/Bluemix_CLI/bin:$PWD/Bluemix_CLI/bin/cfcli:$PATH
-      ibmcloud -v
-      ./scripts/pipeline-DEPLOY.sh
-- name: UNINSTALL (manual)
-  inputs:
-  - type: job
-    stage: BUILD
-    job: Build Docker image
-  properties:
-  - name: buildprops
-    value: build.properties
-    type: file
-  - name: TARGET_NAMESPACE
-    value: ${TARGET_NAMESPACE}
-    type: text
-  - name: TARGET_RESOURCE_GROUP
-    value: ${TARGET_RESOURCE_GROUP}
-    type: text
-  triggers:
-  - type: stage
-    enabled: false
-  jobs:
-  - name: Uninstall
+      ./scripts/pipeline-DEPLOY-broker.sh
+  - name: Deploy Services
     type: deployer
+    deploy_type: cf
     target:
-      region_id: ${TARGET_REGION_ID}
+      region_id: ${REGISTRY_REGION_ID}
       api_key: ${API_KEY}
-      kubernetes_cluster: ${TARGET_CLUSTER_NAME}
-      resource_group: ${TARGET_RESOURCE_GROUP}
-    script: |
+      organization: ${todo cps-van_staub@us.ibm.com}
+      space: {todo cfee-tutorial}
+      api_key: {Todo ...}
+      script: |-
       #!/bin/bash
-      ./scripts/pipeline-UNINSTALL.sh
+      ./scripts/pipeline-DEPLOY-services.sh
+  - name: Deploy Welcome Service
+    type: deployer
+    deploy_type: cf
+    target:
+      region_id: ${REGISTRY_REGION_ID}
+      organization: {todo cfee-e97a8c01ac694e308ef3ad77958e7d50}
+      space: {cf space todo lw-cfee-demo}
+      application: welcome
+      api_key: {Todo ...}
+      cfee_env: {Todo cfee-tutorial}
+      cfee_host: {Todo https://api.cfee-tutorial-cluster.us-east.containers.appdomain.cloud}
+    script: |-
+      #!/bin/bash
+      ./scripts/pipeline-DEPLOY-welcome-app.sh
+  - name: Deploy GetStartedNode
+    type: deployer
+    deploy_type: cf
+    target:
+      region_id: ${REGISTRY_REGION_ID}
+      organization: {todo cfee-e97a8c01ac694e308ef3ad77958e7d50}
+      space: {cf space todo lw-cfee-demo}
+      application: GetStartedNode
+      api_key: {Todo ...}
+      cfee_env: {Todo cfee-tutorial}
+      cfee_host: {Todo https://api.cfee-tutorial-cluster.us-east.containers.appdomain.cloud}
+    script: |-
+      #!/bin/bash
+      ./scripts/pipeline-DEPLOY-getstartednode.sh
+hooks:
+- enabled: true
+  label: null
+  ssl_enabled: false
+  url: http://lms-api/v1/messaging/webhook/publish
