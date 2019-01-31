@@ -32,8 +32,6 @@ stages:
     dir_name: null
   triggers:
   - type: stage
-  permission:
-    execute: TOOLCHAIN_ADMINS
   properties:
   - name: buildprops
     value: build.properties
