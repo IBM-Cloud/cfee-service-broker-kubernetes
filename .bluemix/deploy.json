@@ -35,13 +35,6 @@
       "type": "string",
       "pattern": "^[a-z0-9][-_a-z0-9]{2,28}[a-z0-9]$"
     },
-    "prod-resource-group": {
-      "description": {
-        "$ref": "#/messages/deploy.groupDescription"
-      },
-      "type": "string",
-      "pattern": "\\S"
-    },
     "image-name": {
       "description": {
         "$ref": "#/messages/deploy.imageDescription"
@@ -55,6 +48,13 @@
       },
       "type": "string",
       "disabled": false
+    },
+    "prod-resource-group": {
+      "description": {
+        "$ref": "#/messages/deploy.groupDescription"
+      },
+      "type": "string",
+      "pattern": "\\S"
     },
     "prod-cluster-name": {
       "description": {
@@ -103,9 +103,9 @@
     "api-key",
     "registry-region",
     "registry-namespace",
-    "prod-resource-group",
     "image-name",
     "prod-region",
+    "prod-resource-group",
     "prod-cluster-name",
     "prod-cluster-namespace",
     "cfee-env",
@@ -145,14 +145,6 @@
       "type": "text",
       "readonly": false,
       "title": {
-        "$ref": "#/messages/deploy.groupName"
-      },
-      "key": "prod-resource-group"
-    },
-    {
-      "type": "text",
-      "readonly": false,
-      "title": {
         "$ref": "#/messages/deploy.imageName"
       },
       "key": "image-name"
@@ -160,6 +152,14 @@
     {
       "type": "select",
       "key": "prod-region"
+    },
+    {
+      "type": "text",
+      "readonly": false,
+      "title": {
+        "$ref": "#/messages/deploy.groupName"
+      },
+      "key": "prod-resource-group"
     },
     {
       "type": "select",
