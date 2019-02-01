@@ -135,11 +135,18 @@
           "type": "table",
           "columnCount": 3,
           "widths": [
-            "33%",
-            "33%",
-            "33%"
+            "33.33%",
+            "33.33%",
+            "33.33%"
           ],
           "items": [
+            {
+              "type": "label",
+              "title": {
+                "$ref": "#/messages/deploy.imgregRegion"
+              },
+              "key": "registry-region"
+            },
             {
               "type": "select",
               "title": {
@@ -148,12 +155,24 @@
               "key": "registry-region"
             },
             {
+              "type": "label",
+              "readonly": false,
+              "title": {
+                "$ref": "#/messages/deploy.imageRegistryNamespace"
+              },
+              "key": "registry-namespace"
+            },
+            {
               "type": "select",
               "readonly": false,
               "title": {
                 "$ref": "#/messages/deploy.imageRegistryNamespace"
               },
               "key": "registry-namespace"
+            },
+            {
+              "type": "label",
+              "title": ""
             },
             {
               "type": "text",
