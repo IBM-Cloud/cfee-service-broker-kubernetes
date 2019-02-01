@@ -126,28 +126,46 @@
       },
       "key": "api-key"
     },
+
     {
-      "type": "select",
-      "title": {
-        "$ref": "#/messages/deploy.imgregRegion"
-      },
-      "key": "registry-region"
-    },
-    {
-      "type": "select",
-      "readonly": false,
-      "title": {
-        "$ref": "#/messages/deploy.imageRegistryNamespace"
-      },
-      "key": "registry-namespace"
-    },
-    {
-      "type": "text",
-      "readonly": false,
-      "title": {
-        "$ref": "#/messages/deploy.imageName"
-      },
-      "key": "image-name"
+      "type": "section",
+      "title": { "$ref": "#/messages/deploy.crSection" },
+      "items": [
+        {
+          "type": "table",
+          "columnCount": 3,
+          "widths": [
+            "50%",
+            "3%",
+            "47%"
+          ],
+          "items": [
+            {
+              "type": "select",
+              "title": {
+                "$ref": "#/messages/deploy.imgregRegion"
+              },
+              "key": "registry-region"
+            },
+            {
+              "type": "select",
+              "readonly": false,
+              "title": {
+                "$ref": "#/messages/deploy.imageRegistryNamespace"
+              },
+              "key": "registry-namespace"
+            },
+            {
+              "type": "text",
+              "readonly": false,
+              "title": {
+                "$ref": "#/messages/deploy.imageName"
+              },
+              "key": "image-name"
+            }
+          ]
+        }
+      ]
     },
     {
       "type": "select",
