@@ -141,24 +141,11 @@
           ],
           "items": [
             {
-              "type": "label",
-              "title": {
-                "$ref": "#/messages/deploy.imgregRegion"
-              }
-            },
-            {
               "type": "select",
               "title": {
                 "$ref": "#/messages/deploy.imgregRegion"
               },
               "key": "registry-region"
-            },
-            {
-              "type": "label",
-              "readonly": false,
-              "title": {
-                "$ref": "#/messages/deploy.imageRegistryNamespace"
-              }
             },
             {
               "type": "select",
@@ -167,10 +154,6 @@
                 "$ref": "#/messages/deploy.imageRegistryNamespace"
               },
               "key": "registry-namespace"
-            },
-            {
-              "type": "label",
-              "title": ""
             },
             {
               "type": "text",
