@@ -4,9 +4,10 @@ template.description: "Cloud Foundry Enterprise Environment (CFEE) solution tuto
 deploy.title: "Delivery Pipeline"
 deploy.description: "CFEE-Tutorial-App"
 deploy.longDescription: "The Delivery Pipeline automates continuous deployment."
-deploy.imageDescription: "The name of the Docker image"
-deploy.imageName: "Docker Image name"
 
+
+deploy.apiKey: "IBM Cloud API Key"
+deploy.apikeyDescription: "The IBM Cloud API key is used to access the IBM Container Service API and interact with the cluster. You can obtain your API key with 'bx iam api-key-create' or via the console at https://console.ng.bluemix.net/iam/#/apikeys by clicking **Create API key** (Each API key only can be viewed once)."
 
 deploy.kubeSection: "Kubernetes Cluster"
 deploy.regionDescription: "Cluster region"
@@ -22,9 +23,11 @@ region: "Cluster region"
 organization: "Organization"
 space: "Space"
 
+deploy.imageDescription: "The name of the Docker image"
+deploy.imageName: "Docker Image name"
 
+deploy.crSection: "Container Registry"
 deploy.imageRegistryNamespace: "Image Registry Namespace"
-deploy.apiKey: "IBM Cloud API Key"
 deploy.registryRegionDescription: "The IBM Cloud region for image registry"
 deploy.registrynsDescription: "The namespace in the container image registry. You can set it up with {ibmcloud cr namespace-add]. Learn more at https://cloud.ibm.com/docs/services/Registry/index.html."
 deploy.imgregRegion: "Container image registry region"
