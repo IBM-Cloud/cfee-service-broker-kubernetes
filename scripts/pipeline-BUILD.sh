@@ -31,36 +31,3 @@ echo "Cloning ${REPO}"
 rm -rf ./get-started-node
 git clone ${REPO}
 
-# 
-# update get-started-node with calls to the "welcome" service
-#
-INDEX_HTML=./get-started-node/views/index.html
-sed "s|<h1 data-i18n=\"welcome\"></h1>|<h1 id=\"welcome\"></h1>|" ${INDEX_HTML} > ${INDEX_HTML}.tmp
-echo "<script>\$(document).ready(() => { $.get('./api/welcome').done(data => document.getElementById('welcome').innerHTML= data); });</script>" >> ${INDEX_HTML}.tmp
-mv ${INDEX_HTML}.tmp ${INDEX_HTML}
-#cat ${INDEX_HTML}
-
-SERVER_JS=./get-started-node/server.js
-sed "s_var port = process.env.PORT || 3000_const request = require('request'); \
-const testService = appEnv.services['testnoderesourceservicebrokername']; \
-\
-if (testService) { \
-  const { credentials: { url} } = testService[0]; \
-  app.get('/api/welcome', (req, res) => request(url, (e, r, b) => res.send(b))); \
-} else { \
-  app.get('/api/welcome', (req, res) => res.send('Welcome')); \
-} \
-\
-var port = process.env.PORT || 3000_" ${SERVER_JS} > ${SERVER_JS}.tmp
-mv ${SERVER_JS}.tmp ${SERVER_JS}
-#cat ${SERVER_JS}
-
-cd get-started-node
-npm i request -S
-cd ..
-
-# 
-# re-use github.com/open-toolchain/commons to build image
-# env vars must be set: ARCHIVE_DIR, BUILD_NUMBER, REGISTRY_URL, REGISTRY_NAMESPACE, IMAGE_NAME
-#
-source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/build_image_kubectl.sh")

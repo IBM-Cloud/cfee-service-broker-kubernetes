@@ -8,6 +8,7 @@ bx login -a "$CF_TARGET_URL" --apikey "$API_KEY" -o "$CF_ORG" -s "$CF_SPACE"
 
 REGION=$(bx target | grep Region | awk '{ print $2 }')
 
+# bx target bx group ---
 #
 # create an instance of the cloudant service
 #
