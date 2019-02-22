@@ -1,6 +1,14 @@
 #!/bin/bash
 
 #
+# login to IBM Cloud using the API key targeting a region and then target CFEE org and space.
+#
+echo "login to IBM Cloud using the API key targeting a region and then target CFEE org and space."
+# ibmcloud login --apikey "$API_KEY" -region "$REGION"
+ibmcloud login --apikey "$API_KEY" -r "us-south"
+ibmcloud target --cf-api "$CF_TARGET_URL" -o "$CF_ORG" -s "$CF_SPACE"
+
+#
 # register the service broker and sample service with CFEE (done here because this is run as a Cloud Foundry deployer type)
 #
 BROKER_STATUS=$(cf service-brokers | grep my-company-broker)
@@ -40,4 +48,4 @@ ibmcloud cf update-security-group public_networks ./public_networks.json
 #
 echo "Deploying welcome service app"
 cd ./sample-resource-service
-cf push
+ibmcloud cf push
