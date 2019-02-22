@@ -11,7 +11,7 @@ ibmcloud target --cf-api "$CF_TARGET_URL" -o "$CF_ORG" -s "$CF_SPACE"
 #
 # create an alias in CFEE to the Cloudant services instance in public Cloud
 #
-ibmcloud cfee service-alias-create cfee-cloudant --service-instance-name Cloudant-ha
+ibmcloud cfee service-alias-create cfee-cloudant --service-instance-name cfee-cloudant
 
 
 #
