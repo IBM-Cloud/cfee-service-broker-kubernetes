@@ -7,6 +7,8 @@ echo "login to IBM Cloud using the API key targeting a region and then target CF
 # ibmcloud login --apikey "$API_KEY" -region "$REGION"
 ibmcloud login --apikey "$API_KEY" -r "us-south"
 ibmcloud target --cf-api "$CF_TARGET_URL" -o "$CF_ORG" -s "$CF_SPACE"
+REGION=$(ibmcloud target | grep Region | awk '{ print $2 }')
+echo ${REGION}
 
 #
 # create an alias in CFEE to the Cloudant services instance in public Cloud
