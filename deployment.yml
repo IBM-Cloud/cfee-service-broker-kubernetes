@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
       - name: tutorial-servicebroker
-        image: registry.ng.bluemix.net/cfee-tutorial/service-broker-impl
+        image: us.icr.io/cfee-tutorial/service-broker-impl
         env:
           - name: VERSION
             value: "1"
