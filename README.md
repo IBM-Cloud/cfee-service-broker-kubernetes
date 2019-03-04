@@ -40,6 +40,13 @@ The following artifacts will be available and created.
 | Cloudant | Cloudant used by the GetStartedNode |
 | GetStartedNode | Modified [get-started-node](https://github.com/IBM-Cloud/get-started-node) app using the Welcome Service |
 
+The toolchain holds four deployment stages
+
+1. Deploy Broker, a Kubernetes deployment type to deploy the service broker.![service-broker](./MD-images/service-broker.png)
+2. Welcome App, the welcome app deployed to CFEE using the service broker to translate a welcome word randomly.![welcome-app](./MD-images/welcome-app.png)
+3. Cloudant service deployment.![](./MD-images/cloudant.png)
+4. GetStartedNode sample app. ![GetStartedNode](./MD-images/GetStartedNode.png)
+
 ## Usage
 
 See the [solution tutorial](https://cloud.ibm.com/docs/tutorials?topic=solution-tutorials-isolated-cloud-foundry-enterprise-apps) for manual steps.
