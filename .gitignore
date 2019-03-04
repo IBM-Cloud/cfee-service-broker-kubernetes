@@ -9,3 +9,4 @@ pipeline-master.yml
 ./bluemix/pipeline-not-in-use.yml
 cf_create_org_space(not-in-use).sh
 *.env
+.bluemix/sample.yml

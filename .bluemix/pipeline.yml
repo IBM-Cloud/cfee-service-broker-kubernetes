@@ -1,6 +1,6 @@
 ---
 stages:
-- name: BUILD
+- name: Build
   inputs:
   - type: git
     branch: ${GIT_BRANCH}
@@ -9,15 +9,15 @@ stages:
   - type: commit
   properties:
   - name: TARGET_CLUSTER_NAME
-    value: cfee-tutorial
+    value: ${TARGET_CLUSTER_NAME}
     type: text
   jobs:
-  - name: Build Docker image
+  - name: Build
     type: builder
     build_type: cr
-    # artifact_dir: output
     namespace: ${REGISTRY_NAMESPACE}
-    image_name: ${IMAGE_NAME}
+    #image_name: ${IMAGE_NAME}
+    image_name: broker-impl
     target:
       region_id: ${REGISTRY_REGION_ID}
       api_key: ${API_KEY}
@@ -50,43 +50,40 @@ stages:
     script: |-
       #!/bin/bash
       ./scripts/pipeline-DEPLOY-broker.sh
-  - name: Deploy Services
+  - name: Welcome App
     type: deployer
-    deploy_type: cf
+    deploy_type: kubernetes
     target:
-      region_id: ${REGISTRY_REGION_ID}
-      api_key: ${API_KEY}
-      organization: ${todo cps-van_staub@us.ibm.com}
-      space: {todo cfee-tutorial}
-      api_key: {Todo ...}
-      script: |-
-      #!/bin/bash
-      ./scripts/pipeline-DEPLOY-services.sh
-  - name: Deploy Welcome Service
-    type: deployer
-    deploy_type: cf
-    target:
-      region_id: ${REGISTRY_REGION_ID}
-      organization: {todo cfee-e97a8c01ac694e308ef3ad77958e7d50}
-      space: {cf space todo lw-cfee-demo}
+      organization: ${CFEE_ORG}
+      space: ${CFEE_SPACE}
       application: welcome
-      api_key: {Todo ...}
-      cfee_env: {Todo cfee-tutorial}
-      cfee_host: {Todo https://api.cfee-tutorial-cluster.us-east.containers.appdomain.cloud}
+      api_key: ${API_KEY}
+      cfee_env: ${CFEE_ENV}
+      cfee_host: ${CFEE_HOST}
     script: |-
       #!/bin/bash
       ./scripts/pipeline-DEPLOY-welcome-app.sh
-  - name: Deploy GetStartedNode
+  - name: Cloudant
+    type: deployer
+    deploy_type: kubernetes
+    target:
+      region_id: ${REGISTRY_REGION_ID}
+      api_key: ${API_KEY}
+      resource_group: ${TARGET_RESOURCE_GROUP}
+      kubernetes_cluster: ${TARGET_CLUSTER_NAME}
+    script: |-
+      #!/bin/bash
+      ./scripts/pipeline-DEPLOY-services.sh
+  - name: GetStartedNode App
     type: deployer
     deploy_type: cf
     target:
-      region_id: ${REGISTRY_REGION_ID}
-      organization: {todo cfee-e97a8c01ac694e308ef3ad77958e7d50}
-      space: {cf space todo lw-cfee-demo}
+      organization: ${CFEE_ORG}
+      space: ${CFEE_SPACE}
       application: GetStartedNode
-      api_key: {Todo ...}
-      cfee_env: {Todo cfee-tutorial}
-      cfee_host: {Todo https://api.cfee-tutorial-cluster.us-east.containers.appdomain.cloud}
+      api_key: ${API_KEY}
+      cfee_env: ${CFEE_ENV}
+      cfee_host: ${CFEE_HOST}
     script: |-
       #!/bin/bash
       ./scripts/pipeline-DEPLOY-getstartednode.sh
