@@ -54,11 +54,10 @@ stages:
     type: deployer
     deploy_type: cf
     target:
-      region_id: ${REGISTRY_REGION_ID}
-      api_key: ${API_KEY}
       organization: ${CFEE_ORG}
       space: ${CFEE_SPACE}
       application: welcome
+      api_key: ${API_KEY}
       cfee_env: ${CFEE_ENV}
       cfee_host: ${CFEE_HOST}
     script: |-
