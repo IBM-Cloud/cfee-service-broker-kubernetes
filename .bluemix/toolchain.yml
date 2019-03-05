@@ -17,7 +17,7 @@ services:
     parameters:
       repo_name: 'cfee-service-broker-kubernetes'
       repo_url: 'https://github.com/IBM-Cloud/cfee-service-broker-kubernetes'
-      type: existing
+      type: clone
       has_issues: false
       enable_traceability: false
   build:
