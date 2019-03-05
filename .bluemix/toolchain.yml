@@ -41,10 +41,10 @@ services:
           TARGET_CLUSTER_NAME: '{{form.pipeline.parameters.prod-cluster-name}}'
           TARGET_NAMESPACE: '{{form.pipeline.parameters.prod-cluster-namespace}}'
           TARGET_RESOURCE_GROUP: '{{form.pipeline.parameters.prod-resource-group}}'
-          CFEE_ORG: '{{form.pipeline.parameters.}}'
-          CFEE_SPACE: '{{form.pipeline.parameters.}}'
-          CFEE_ENV: '{{form.pipeline.parameters.}}'
-          CFEE_HOST: '{{form.pipeline.parameters.}}'
+          CFEE_ORG: '{{form.pipeline.parameters.cfee-org}}'
+          CFEE_SPACE: '{{form.pipeline.parameters.cfee-space}}'
+          CFEE_ENV: '{{form.pipeline.parameters.cfee-env}}'
+          CFEE_HOST: '{{form.pipeline.parameters.cfee-host}}'
         execute: true 
 form:
   pipeline:

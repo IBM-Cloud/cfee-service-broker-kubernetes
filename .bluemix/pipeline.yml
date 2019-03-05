@@ -52,7 +52,7 @@ stages:
       ./scripts/pipeline-DEPLOY-broker.sh
   - name: Welcome App
     type: deployer
-    deploy_type: kubernetes
+    deploy_type: cf
     target:
       organization: ${CFEE_ORG}
       space: ${CFEE_SPACE}
