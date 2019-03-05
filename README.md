@@ -1,4 +1,4 @@
-# CFEE Service Broker on Kubernetes
+# CFEE Service Broker on Kubernetes with a Toolchain
 
 This repository is a companion to the Isolated Cloud Foundry Enterprise Environment (CFEE) solution tutorial. It will deploy a Node.js service broker to an IBM Kubernetes Service cluster. A Cloudant database service, and a [get-started-node](https://github.com/IBM-Cloud/get-started-node) app.
 
