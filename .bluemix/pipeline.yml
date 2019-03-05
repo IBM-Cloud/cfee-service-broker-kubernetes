@@ -38,12 +38,13 @@ stages:
     type: file
   - name: API_KEY
     type: secure
+    value: ${API_KEY}
   jobs:
   - name: Deploy Service Broker
     type: deployer
     deploy_type: kubernetes
     target:
-      region_id: ${REGISTRY_REGION_ID}
+      region_id: ${TARGET_REGION_ID}
       api_key: ${API_KEY}
       resource_group: ${TARGET_RESOURCE_GROUP}
       kubernetes_cluster: ${TARGET_CLUSTER_NAME}
@@ -67,7 +68,7 @@ stages:
     type: deployer
     deploy_type: kubernetes
     target:
-      region_id: ${REGISTRY_REGION_ID}
+      region_id: ${TARGET_REGION_ID}
       api_key: ${API_KEY}
       resource_group: ${TARGET_RESOURCE_GROUP}
       kubernetes_cluster: ${TARGET_CLUSTER_NAME}
@@ -78,7 +79,7 @@ stages:
     type: deployer
     deploy_type: cf
     target:
-      region_id: ${REGISTRY_REGION_ID}
+      region_id: ${TARGET_REGION_ID}
       api_key: ${API_KEY}     
       organization: ${CFEE_ORG}
       space: ${CFEE_SPACE}

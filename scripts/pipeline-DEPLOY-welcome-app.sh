@@ -5,11 +5,11 @@
 #
 echo "login to IBM Cloud using the API key targeting a region and then target CFEE org and space."
 ibmcloud login --apikey "$API_KEY" 
-REGION=$(ibmcloud target | grep Region | awk '{ print $2 }')
-echo "$(REGION)"
+# REGION=$(ibmcloud target | grep Region | awk '{ print $2 }')
+# echo $REGION
 
 # Login again but target the region, also target the CFEE org and space.
-ibmcloud login --apikey "$API_KEY" -r ${REGION}
+# ibmcloud login --apikey "$API_KEY" -r ${REGION}
 ibmcloud target --cf-api "$CF_TARGET_URL" -o "$CF_ORG" -s "$CF_SPACE"
 
 #
