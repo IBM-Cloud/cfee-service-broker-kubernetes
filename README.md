@@ -27,11 +27,13 @@ This project comes with a partially automated toolchain capable of deploying the
 
 [![Create toolchain](https://console.bluemix.net/devops/graphics/create_toolchain_button.png)](https://cloud.ibm.com/devops/setup/deploy/?repository=https%3A//github.com/IBM-Cloud/cfee-service-broker-kubernetes)
 
-Once the toolchain has completed: 
-- The application will be available at `https://getstartednode.<your-cluster-ingress-domain>`.
-- The service broker will be available at `https://welcome.<your-cluster-ingress-domain>`.
+Once the toolchain completed: 
+- The service broker will be available at `https://welcome.<your-cluster-ingress-domain>`. (Get the service broker endpoint from the the `Service Broker` toolchain logs.)
 
-The following artifacts will be available and created.
+- The application will be available at `https://getstartednode-<random-route>.<your-cluster-ingress-domain>`. (Get the application endpoint from the the `GetStartedNode` toolchain logs.)
+
+
+The following artifacts will be available and created:
 
 | Artifact | Description |
 | -------- | ----------- |
@@ -40,7 +42,7 @@ The following artifacts will be available and created.
 | Cloudant | Cloudant used by the GetStartedNode |
 | GetStartedNode | Modified [get-started-node](https://github.com/IBM-Cloud/get-started-node) app using the Welcome Service |
 
-The toolchain consists of four deployment stages, each with a pipeline DEPLOY [script](https://github.com/IBM-Cloud/cfee-service-broker-kubernetes/tree/master/scripts).
+Next, explore the toolchain deployment stages below and their [script](https://github.com/IBM-Cloud/cfee-service-broker-kubernetes/tree/master/scripts).
 
 1. Deploy Broker, a Kubernetes deployment type to deploy the service broker.![service-broker](./MD-images/service-broker.png)
 2. Welcome App, the welcome app deployed to CFEE using the service broker to translate a welcome word randomly.![welcome-app](./MD-images/welcome-app.png)
