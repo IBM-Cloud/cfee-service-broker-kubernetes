@@ -35,7 +35,7 @@ fi
 #
 # update the ASG IP range to include the service broker (assumes the default public_networks ASG is set)
 #
-ibmcloud cf security-group public_networks | sed '8,33!d' | sed "s|172.32.0.0-192.167.255.255|172.1.0.0-192.167.255.255|" > public_networks.json
+ibmcloud cf security-group public_networks | sed '/^Invoking/ d' | sed '/^Getting/ d' | sed '/^OK/ d' | sed '/^Name/ d' | sed '/^Rules/ d' | sed '/^No/ d' | sed -e 's/#.*//' -e '/^$/ d' | sed "s|172.32.0.0-192.167.255.255|172.1.0.0-192.167.255.255|" > public_networks.json
 echo "Modified public_networks ASG to the following:"
 cat public_networks.json
 echo "Updating public_networks ASG"
