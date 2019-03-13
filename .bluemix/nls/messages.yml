@@ -26,10 +26,10 @@ space: "Space"
 deploy.imageDescription: "The name of the Docker image"
 deploy.imageName: "Docker Image name"
 
-deploy.crSection: "Container Registry Select your container region and container namespace and leave the docker image name to his default CFEE-tutorial-app."
+deploy.crSection: "Container Registry, select your container region and container namespace and leave the docker image name to his default CFEE-tutorial-app"
 deploy.imageRegistryNamespace: "Image Registry Namespace"
 deploy.registryRegionDescription: "The IBM Cloud region for image registry"
-deploy.registrynsDescription: "The namespace in the container image registry. You can set it up with {ibmcloud cr namespace-add]. Learn more at https://cloud.ibm.com/docs/services/Registry/index.html."
+deploy.registrynsDescription: "The namespace in the container image registry. You can set it up with {ibmcloud cr namespace-add]. Learn more at https://cloud.ibm.com/docs/services/Registry/index.html"
 deploy.imgregRegion: "Container image registry region"
 
 
