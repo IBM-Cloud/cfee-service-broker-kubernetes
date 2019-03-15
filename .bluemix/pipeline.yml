@@ -11,6 +11,9 @@ stages:
   - name: TARGET_CLUSTER_NAME
     value: ${TARGET_CLUSTER_NAME}
     type: text
+  - name: TARGET_RESOURCE_GROUP
+    value: ${TARGET_RESOURCE_GROUP}
+    type: text
   jobs:
   - name: Build
     type: builder

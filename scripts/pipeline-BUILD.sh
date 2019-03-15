@@ -1,10 +1,14 @@
 #!/bin/bash
 export PATH=/opt/IBM/node-v6.7.0/bin:$PATH
 
+# target the resource group where the cluster was created
+ibmcloud target -g $TARGET_RESOURCE_GROUP
+
 #
 # get the URL to the CFEE instance
 #
-CFEE_URL=$(bx cs cluster-get ${PIPELINE_KUBERNETES_CLUSTER_NAME} | grep "Ingress Subdomain:" | awk '{ print $3 }')
+CFEE_URL=$(ibmcloud ks cluster-get $PIPELINE_KUBERNETES_CLUSTER_NAME --json | jq -r .ingressHostname)
+
 echo "CFEE_URL=$CFEE_URL"
 
 # 
