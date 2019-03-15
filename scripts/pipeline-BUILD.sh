@@ -5,6 +5,7 @@ export PATH=/opt/IBM/node-v6.7.0/bin:$PATH
 # get the URL to the CFEE instance
 #
 CFEE_URL=$(bx cs cluster-get ${PIPELINE_KUBERNETES_CLUSTER_NAME} | grep "Ingress Subdomain:" | awk '{ print $3 }')
+echo "CFEE_URL=$CFEE_URL"
 
 # 
 # remove and clone the sample-resource-service-brokers repo
