@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# use a more recent IBM Cloud version (0.13 currently in toolchain)
+# to workaround bug when calling "ibmcloud cfee" line 22
+wget https://clis.ng.bluemix.net/download/bluemix-cli/0.14.0/linux64/archive
+tar xvf archive
+rm -f archive
+export PATH=$PWD/IBM_Cloud_CLI/:$PATH
+
 #
 # login to IBM Cloud using the API key targeting a region and then target CFEE org and space.
 #
