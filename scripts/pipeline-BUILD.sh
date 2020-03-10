@@ -7,7 +7,7 @@ ibmcloud target -g $TARGET_RESOURCE_GROUP
 #
 # get the URL to the CFEE instance
 #
-CFEE_URL=$(ibmcloud ks cluster-get $TARGET_CLUSTER_NAME --json | jq -r .ingressHostname)
+CFEE_URL=$(ibmcloud ks cluster get --cluster $TARGET_CLUSTER_NAME --json | jq -r .ingressHostname)
 echo "CFEE_URL=$CFEE_URL"
 
 # 
